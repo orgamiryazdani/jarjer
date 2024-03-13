@@ -16,12 +16,12 @@ const Home = () => {
         </div>
         <div className='w-2/6 h-full z-10 flex items-center justify-center'>
           <img
-            src='/public/images/burgers.png'
+            src='../../public/images/burgers.png'
             alt=''
             className='w-[500px] absolute right-24'
           />
           <img
-            src='/public/images/like.png'
+            src='../../public/images/like.png'
             className='absolute -right-7 bottom-48 w-80 rotate-12'
             alt=''
           />

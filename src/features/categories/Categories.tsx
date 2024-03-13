@@ -1,22 +1,14 @@
 import CategoryCard from "./CategoryCard";
-import useCategories from "../../hooks/useCategories";
-import { category } from "../../types/Category";
 import { useSearchParams } from "react-router-dom";
 import Loading from "../../ui/Loading";
-
-type categoryData = {
-  data: {
-    menuItems: category[];
-  };
-  isLoading: boolean;
-};
+import { category } from "../../types/Category";
+import useCategories from "../../hooks/useCategories";
 
 const CategoryCart = () => {
   const [searchParams] = useSearchParams();
-  const currentFilter: string = searchParams.get("query") || "pizzaa";
-  const { data, isLoading }: categoryData = useCategories(
-    `query=${currentFilter}&number=6`,
-  );
+  const currentFilter: string =
+    (searchParams.get("query") as string) || "pizzaa";
+  const { data, isLoading } = useCategories(`query=${currentFilter}&number=6`);
 
   if (isLoading)
     return (
@@ -28,7 +20,7 @@ const CategoryCart = () => {
       </div>
     );
 
-  if (data.menuItems.length === 0)
+  if (data && data.menuItems.length === 0)
     return (
       <div className='w-full h-48 flex items-center justify-center text-gray'>
         محصولی پیدا نشد
@@ -41,13 +33,14 @@ const CategoryCart = () => {
         Popular Category
       </h1>
       <div className='flex items-center justify-between gap-x-4'>
-        {data.menuItems.map((item: category) => (
-          <CategoryCard
-            key={item.id}
-            title={item.title}
-            image={item.image}
-          />
-        ))}
+        {data &&
+          data.menuItems.map((item: category) => (
+            <CategoryCard
+              key={item.id}
+              title={item.title}
+              image={item.image}
+            />
+          ))}
       </div>
     </div>
   );
