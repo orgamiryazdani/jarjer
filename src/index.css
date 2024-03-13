@@ -1,0 +1,30 @@
+@import url("/fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none !important;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+  font-family: "Vazir";
+}
+
+:root {
+  & {
+    --color-gray: #323232;
+    --color-yellow: #ffc839;
+    --color-white: #ffffff;
+    --color-category-bg: #f0f0f0;
+  }
+}
+
+@layer components {
+  .btnCartStyle {
+    @apply rounded-tl-[30px] rounded-bl-[60px] rounded-tr-[60px] rounded-br-[30px];
+  }
+}
