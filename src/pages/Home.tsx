@@ -3,6 +3,8 @@ import ProductCart from "../features/products/Products";
 import AppLayout from "../ui/AppLayout";
 import Location from "../ui/Location";
 import Search from "../ui/Search";
+import burgers from "../../public/images/burgers.png";
+import like from "../../public/images/like.png";
 
 const Home = () => {
   return (
@@ -16,14 +18,14 @@ const Home = () => {
         </div>
         <div className='w-2/6 h-full z-10 flex items-center justify-center'>
           <img
-            src='../../public/images/burgers.png'
-            alt=''
+            src={burgers}
+            alt='burger'
             className='w-[500px] absolute right-24'
           />
           <img
-            src='../../public/images/like.png'
+            src={like}
             className='absolute -right-7 bottom-48 w-80 rotate-12'
-            alt=''
+            alt='like'
           />
         </div>
       </div>
